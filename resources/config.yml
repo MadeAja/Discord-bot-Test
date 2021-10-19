@@ -1,0 +1,16 @@
+---
+version: 2
+
+discord:
+  token: "Long Token here."
+  use_plugin_cacert: true
+
+logging:
+  debug: false
+  max_files: 28
+  directory: "logs"
+
+protocol:
+  packets_per_tick: 50
+  heartbeat_allowance: 60
+...
