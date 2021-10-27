@@ -162,7 +162,7 @@ class Invite extends Part
             return $user;
         }
 
-        return $this->factory->create(User::class, $this->attributes['inviter'], true);
+        return $this->factory->create(User::class, $this->attributes['inviter'] ?? [], true);
     }
 
     /**
