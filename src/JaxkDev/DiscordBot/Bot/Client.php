@@ -54,14 +54,12 @@ class Client{
     private $tickCount;
     /** @var int */
     private $lastGCCollection = 0;
-	
-	public static $instance;
+
 
     /** @var array */
     private $config;
 
     public function __construct(BotThread $thread, array $config){
-		self::$instance = $this;
         $this->thread = $thread;
         $this->config = $config;
 
@@ -121,9 +119,6 @@ class Client{
             $this->close();
         }
     }
-	static function getInstance(): self{
-		return self::$instance;
-	}
 
     private function registerTimers(): void{
         // Handles shutdown, rather than a SHUTDOWN const to send through internal communication, set flag to closed.
