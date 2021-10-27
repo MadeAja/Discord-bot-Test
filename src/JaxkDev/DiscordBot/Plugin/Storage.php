@@ -83,6 +83,11 @@ class Storage{
     public static function getServer(string $id): ?Server{
         return self::$server_map[$id] ?? null;
     }
+    /** @return Server[]
+    */
+    public static function getServers(): array{
+        return self::$server_map;
+    }
 
     public static function addServer(Server $server): void{
         if(isset(self::$server_map[($id = $server->getId())])) return; //Already added.
