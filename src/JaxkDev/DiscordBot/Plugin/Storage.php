@@ -292,7 +292,12 @@ class Storage{
     public static function addUser(User $user): void{
         self::$user_map[$user->getId()] = $user;
     }
-
+    /**
+    * @return User[]
+    */
+    public static function getUsers(): array{
+        return self::$user_map;
+    }
     /**
      * @internal
      */
