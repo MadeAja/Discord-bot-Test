@@ -34,4 +34,7 @@ class MessageSent extends DiscordBotEvent{
     public function getMessage(): Message{
         return $this->message;
     }
+    public function setMessage(Message $message){
+        $this->message = $message;
+    }
 }
