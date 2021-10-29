@@ -132,8 +132,8 @@ class BotCommunicationHandler{
 
     private function handleReady(): void{
         //Default activity, Feel free to change activity after ReadyEvent.
-        $ac = new Activity("PocketMine-MP v".\pocketmine\VERSION." | DiscordBot ".\JaxkDev\DiscordBot\VERSION, Activity::TYPE_PLAYING);
-        $this->plugin->getApi()->updateBotPresence($ac, Member::STATUS_IDLE)->otherwise(function(ApiRejection $a){
+        $ac = new Activity("Bot is loading.. Please stand by!", Activity::TYPE_PLAYING);
+        $this->plugin->getApi()->updateBotPresence($ac, Member::STATUS_DND)->otherwise(function(ApiRejection $a){
             $this->plugin->getLogger()->logException($a);
         });
 
