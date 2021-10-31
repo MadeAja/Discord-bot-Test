@@ -83,7 +83,8 @@ class Storage{
     public static function getServer(string $id): ?Server{
         return self::$server_map[$id] ?? null;
     }
-    /** @return Server[]
+    /**
+    * @return Server[]
     */
     public static function getServers(): array{
         return self::$server_map;
