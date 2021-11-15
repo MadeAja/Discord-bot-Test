@@ -50,6 +50,9 @@ class Main extends PluginBase{
     private $config;
 
     public function onLoad(){
+        $this->checkLoad();
+    }
+    public function checkLoad(): void{
         if(($phar = Phar::running(true)) === ""){
             throw new PluginException("Cannot be run from source.");
         }
@@ -77,6 +80,9 @@ class Main extends PluginBase{
     }
 
     public function onEnable(){
+        $this->checkEnable();
+    }
+    public function checkEnable(): void{
         if(!$this->loadConfig()) return;
         if(is_file($this->getDataFolder()."events.yml")){
             // Don't delete file, DiscordChat will transfer it then delete it.
@@ -114,8 +120,10 @@ class Main extends PluginBase{
     }
 
     public function onDisable(){
+        $this->checkDisable();
+    }
+    public function checkDisable(): void{
         (new DiscordClosed($this))->call();
-
         if($this->tickTask !== null and !$this->tickTask->isCancelled()){
             $this->tickTask->cancel();
         }
